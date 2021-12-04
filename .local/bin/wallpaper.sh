@@ -1,0 +1,47 @@
+#!/bin/env zsh
+
+# kill previous instances of this script before running
+# $$ refers to the current process which is $0
+for pid in `pgrep -f $0`; do
+   if [[ $pid != $$ ]]; then
+      kill $pid
+   fi
+done
+
+state=$1
+walls="$HOME/Photos/wallpaper"
+error_msg="Usage: $0 [random / slide] or $0 still <wallpaper.png>"
+
+case $state in
+   random)
+      feh --bg-fill --randomize --no-fehbg $walls
+   ;;
+
+   still)
+         if [[ -n "$2" ]]; then 
+            still=$2
+            feh --bg-fill --randomize --no-fehbg $walls/$still
+         else
+            echo $error_msg
+         fi
+   ;;
+
+   slide)
+      if [[ -n "$2" ]]; then 
+         time=$2
+
+         while true; do
+            for w in $walls/*.png; do
+               feh --no-fehbg --bg-fill $w
+               sleep $time
+            done
+         done
+      else 
+         echo $error_msg
+      fi 
+   ;;
+
+   *)
+         echo $error_msg
+   ;;
+esac
