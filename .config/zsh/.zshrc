@@ -1,5 +1,4 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.config/zsh/.histfile
+HISTFILE=$XDG_DATA_HOME/zsh/.histfile
 HISTSIZE=2000
 SAVEHIST=5000
 unsetopt beep
@@ -19,5 +18,13 @@ precmd() { vcs_info }
 setopt prompt_subst
 prompt="[%F{cyan}%n%F{white}@%F{208}%m %F{yellow}%1~%F{reset_colour}]\${vcs_info_msg_0_}"$'\n'"%# "
 
+autoload -Uz run-help
+unalias run-help
+alias help="run-help"
+
 [[ -f $HOME/.config/zsh/.zalias ]] && source $HOME/.config/zsh/.zalias
 [[ -f $HOME/.config/zsh/.zfuncs ]] && source $HOME/.config/zsh/.zfuncs
+
+# (NVM) Node Version Manager
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
