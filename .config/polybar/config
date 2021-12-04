@@ -14,8 +14,8 @@ alert = #ff0000
 [bar/topbar]
 bottom = false
 width = 100%
-height = 26
-radius = 10
+height = 30
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -25,7 +25,7 @@ line-size = 2
 line-color = #f00
 
 border-size = 0
-border-color = #00 000000
+border-color = #00000000
 
 padding-left = 1
 padding-right = 1
@@ -37,10 +37,10 @@ module-margin-right = 1
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
 
-font-0 = TerminessTTF Nerd Font Mono:pixelsize=18;antialias=true;1
-font-1 = glyphicons16px:fontformat=truetype:pixelsize=18;antialias=true;1
+font-0 = TerminessTTF Nerd Font Mono:pixelsize=18;antialias=true;2
+font-1 = glyphicons16px:fontformat=truetype:pixelsize=18;antialias=true;3
 
-modules-left = battery0 battery1 cpu memory xkeyboard filesystem
+modules-left = battery0 battery1 cpu memory xkeyboard filesystem traffic
 modules-center = 
 modules-right = wlan date powermenu
 
@@ -65,10 +65,10 @@ cursor-scroll = ns-resize
 [bar/botbar]
 bottom = true
 width = 100%
-height = 26
+height = 30
 offset-x = 1%
 offset-y = 1%
-radius = 7
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -91,7 +91,7 @@ module-margin-right = 1
 ;font-2 = siji:pixelsize=10;1
 
 font-0 = TerminessTTF Nerd Font Mono:pixelsize=18:antialias=true;3
-font-1 = glyphicons16px:fontformat=truetype:pixelsize=16;antialias=true;1
+font-1 = glyphicons16px:fontformat=truetype:pixelsize=16;antialias=true;3
 
 modules-left = i3
 modules-center = 
@@ -119,14 +119,15 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
+interval = 1
 
 format = <label-layout>
 format-prefix = ":"
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.primary}
+;format-prefix-underline = ${colors.primary}
 
 label-layout = %layout%
-label-layout-underline = ${colors.primary}
+;label-layout-underline = ${colors.primary}
 
 ;label-indicator-padding = 1
 ;label-indicator-margin = 1
@@ -144,10 +145,15 @@ format-prefix = " "
 mount-0 = /
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}:%percentage_used%%
-label-mounted-underline = ${colors.primary}
+;label-mounted-underline = ${colors.primary}
 
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/traffic]
+type = custom/script
+exec = ~/.local/bin/traffic.sh
+tail = true
 
 [module/bspwm]
 type = internal/bspwm
@@ -200,7 +206,7 @@ label-unfocused-padding = 1
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+;label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -243,7 +249,7 @@ type = internal/cpu
 interval = 2
 format-prefix = ":"
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
+;format-underline = ${colors.primary}
 label = %percentage%%
 
 [module/memory]
@@ -251,7 +257,7 @@ type = internal/memory
 interval = 2
 format-prefix = ":"
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
+;format-underline = ${colors.primary}
 label = %percentage_used%%
 
 [module/wlan]
@@ -261,12 +267,15 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-underline = ${colors.primary}
+format-connected-prefix-foreground = ${colors.foreground-alt}
+;format-connected-underline = ${colors.primary}
 label-connected = %essid%
+label-connected-foreground = ${color.foreground}
 
 format-disconnected = <label-disconnected>
 format-disconnected-prefix = " "
-format-disconnected-underline = ${colors.alert}
+format-disconnected-prefix-foreground = ${colors.alert}
+;format-disconnected-underline = ${colors.alert}
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -282,7 +291,7 @@ type = internal/network
 interface = enp0s31f6
 interval = 3.0
 
-format-connected-underline = ${colors.primary}
+;format-connected-underline = ${colors.primary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -305,7 +314,7 @@ time-alt = %H:%M:%S
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
+;format-underline = ${colors.primary}
 
 label = %date% - %time%
 
@@ -344,15 +353,16 @@ full-at = 98
 
 format-charging = <label-charging>
 format-charging-prefix = ":"
-format-charging-underline = #ffb52a
+;format-charging-underline = #ffb52a
 
 format-discharging = <label-discharging>
 format-discharging-prefix = ":"
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-prefix-foreground = ${colors.foreground-alt}
+;format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = ":"
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
 
 ;ramp-capacity-0 = 
 ;ramp-capacity-1 = 
@@ -379,15 +389,16 @@ full-at = 98
 
 format-charging = <label-charging>
 format-charging-prefix = ":"
-format-charging-underline = #ffb52a
+;format-charging-underline = #ffb52a
 
 format-discharging = <label-discharging>
 format-discharging-prefix = ":"
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-prefix-foreground = ${colors.foreground-alt}
+;format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = ":"
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
 
 ;ramp-capacity-0 = 
 ;ramp-capacity-1 = 
@@ -412,9 +423,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = ${colors.primary}
+;format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
-format-warn-underline = $#f50a4d
+;format-warn-underline = $#f50a4d
 
 label = %temperature-c%
 label-warn = %temperature-c%
