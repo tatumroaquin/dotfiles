@@ -14,7 +14,7 @@ error_msg="Usage: $0 [random / slide] or $0 still <wallpaper.png>"
 
 case $state in
    random)
-      feh --bg-fill --randomize --no-fehbg $walls
+      feh -r --bg-fill --randomize --no-fehbg $walls
    ;;
 
    still)
