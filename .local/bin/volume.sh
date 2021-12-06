@@ -16,7 +16,7 @@ case $param in
       #pactl set-sink-mute @DEFAULT_SINK@ toggle
       ;;
    silence)
-      amixer -c 0 set Mic toggle
+      amixer -c 0 set Capture toggle
       #pactl set-source-mute @DEFAULT_SOURCE@ toggle
       ;;
 esac
