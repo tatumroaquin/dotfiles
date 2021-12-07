@@ -24,11 +24,11 @@ gaps outer 2
 # --- [ AUTO START ] ---
 set $scripts $HOME/.local/bin
 
+exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 exec_always --no-startup-id $scripts/touchpad.sh
+exec_always --no-startup-id $scripts/battery.sh 50
 exec_always --no-startup-id $scripts/polybar.sh
 exec_always --no-startup-id $scripts/wallpaper.sh random
-exec_always --no-startup-id dunst -conf ~/.config/dunst/dunstrc
-
 
 exec --no-startup-id picom
 
