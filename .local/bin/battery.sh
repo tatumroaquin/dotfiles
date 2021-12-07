@@ -5,11 +5,11 @@
 
 while true; do
    bat0=`cat /sys/class/power_supply/BAT0/capacity`
-   bat1=`cat /sys/class/power_supply/BAT0/capacity`
+   bat1=`cat /sys/class/power_supply/BAT1/capacity`
 
-   if [ $bat0 -le $1 ] || [ $bat1 -le $1 ]; then
+   if [ $bat0 -le $1 ] && [ $bat1 -le $1 ]; then
       notify-send -u critical 'battery' 'low power'
-      break;
+      break
    fi
-   sleep 60;
+   sleep 60
 done
