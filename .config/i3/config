@@ -48,7 +48,7 @@ exec --no-startup-id nm-applet
 #bindsym $mod+w exec -no-startup-id qutebrowser
 bindsym $mod+w exec firefox
 bindsym --release Print exec --no-startup-id $scripts/screenshot.sh screen
-bindsym $mod+Print exec --no-startup-id $scripts/screenshot.sh partial
+bindsym Shift+Print exec --no-startup-id $scripts/screenshot.sh partial
 
 # volume controls (alsa)
 bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/volume.sh up
