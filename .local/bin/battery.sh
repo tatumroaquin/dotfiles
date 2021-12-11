@@ -16,7 +16,8 @@ full=0
 charging=0
 draining=0
 lowpower=0
-limit=$1
+l_limit=$1
+u_limit=$2
 
 while true; do
    bat0=`cat /sys/class/power_supply/BAT0/capacity`
@@ -25,6 +26,8 @@ while true; do
    stat1=`cat /sys/class/power_supply/BAT1/status`
 
    if [ $stat0 == "Full" ] && [ $stat1 == "Full" ]; then
+      state="Full"
+   elif [ $bat0 -ge $u_limit ] && [ $bat1 -ge $u_limit ]; then
       state="Full"
    elif [ $stat0 == "Charging" ] || [ $stat1 == "Charging" ]; then
       state="Charging"
@@ -36,7 +39,7 @@ while true; do
       Full) 
          if [ $full -eq 0 ]; then
             full=1
-            notify-send -u normal 'battery' 'fully charged'
+            notify-send -t 0 'battery' "charged at $u_limit%"
          fi
          ;;
 
