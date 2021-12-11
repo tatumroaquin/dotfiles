@@ -27,9 +27,10 @@ set $scripts $HOME/.local/bin
 
 exec_always --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
 exec_always --no-startup-id $scripts/touchpad.sh
-exec_always --no-startup-id $scripts/battery.sh 30
+exec_always --no-startup-id $scripts/battery.sh 30 98
 exec_always --no-startup-id $scripts/polybar.sh
 exec_always --no-startup-id $scripts/wallpaper.sh random
+exec_always --no-startup-id fcitx5 -d
 
 exec --no-startup-id picom
 
@@ -44,9 +45,10 @@ exec --no-startup-id nm-applet
 # ----------------------
 
 # --- [ KEY BINDINGS ] ---
-#bindsym $mod+w exec qutebrowser
+#bindsym $mod+w exec -no-startup-id qutebrowser
 bindsym $mod+w exec firefox
-bindsym --release Print exec --no-startup-id $scripts/screenshot.sh
+bindsym --release Print exec --no-startup-id $scripts/screenshot.sh screen
+bindsym $mod+Print exec --no-startup-id $scripts/screenshot.sh partial
 
 # volume controls (alsa)
 bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/volume.sh up
@@ -115,10 +117,10 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+grave focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
