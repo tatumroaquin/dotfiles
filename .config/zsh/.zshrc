@@ -4,7 +4,7 @@ SAVEHIST=5000
 unsetopt beep
 bindkey -v
 
-zstyle :compinstall filename '/home/ormux/.zshrc'
+zstyle :compinstall filename '/home/ormux/.config/zsh/.zshrc'
 
 fpath=(~/.config/git/completions $fpath)
 autoload -Uz compinit && compinit
