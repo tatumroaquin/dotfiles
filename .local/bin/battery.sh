@@ -39,6 +39,7 @@ while true; do
       Full) 
          if [ $full -eq 0 ]; then
             full=1
+            dunstctl close 0
             notify-send -t 0 'battery' "charged at $u_limit%"
          fi
          ;;
@@ -50,6 +51,7 @@ while true; do
 
          if [ $charging -eq 0 ]; then
             charging=1
+            dunstctl close 0
             notify-send -u normal 'battery' 'charging'
             echo 'battery is charging'
          fi
@@ -61,13 +63,15 @@ while true; do
 
          if [ $draining -eq 0 ]; then
             draining=1
+            dunstctl close 0
             notify-send -u low 'battery' 'discharging'
             echo 'battery is discharging'
          fi
 
-         if [ $bat0 -le $limit ] && [ $bat1 -le $limit ]; then
+         if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ]; then
             if [ $lowpower -eq 0 ]; then
                lowpower=1
+               dunstctl close 0
                notify-send -u critical 'battery' 'low power'
                echo 'battery on low power'
             fi
