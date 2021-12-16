@@ -10,7 +10,7 @@ done
 
 state=$1
 walls="$HOME/Photos/wallpaper"
-error_msg="Usage: $0 [random / slide] or $0 still <wallpaper.png>"
+error_msg="Usage: $0 random, $0 slide <seconds> or $0 still <wallpaper.png>"
 
 case $state in
    random)
@@ -31,10 +31,11 @@ case $state in
          time=$2
 
          while true; do
-            for w in $walls/*.png; do
-               feh --no-fehbg --bg-fill $w
+            walls=`find "$HOME/Photos/wallpaper" -type f | shuf`
+            while read w; do
+               feh --no-fehbg --bg-fill "$w"
                sleep $time
-            done
+            done < <(echo $walls)
          done
       else 
          echo $error_msg
