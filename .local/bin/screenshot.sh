@@ -4,9 +4,13 @@ param=$1
 
 case $param in 
    screen)
-      maim ~/Photos/screenshots/$(date +"%Y-%m-%d_%H.%M.%S").png
+      filename=`date +"%Y-%m-%d_%H.%M.%S"`
+      maim ~/Photos/screenshots/$filename.png
+      notify-send -u low "Desktop Screenshot" "$filename.png"
       ;;
    partial)
-      maim -s ~/Photos/screenshots/$(date +"%Y-%m-%d_%H.%M.%S").png
+      filename=`date +"%Y-%m-%d_%H.%M.%S"`
+      maim -s ~/Photos/screenshots/$filename.png
+      notify-send -u low "Partial Screenshot" "$filename.png"
       ;;
 esac
