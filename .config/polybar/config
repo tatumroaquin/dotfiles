@@ -42,7 +42,7 @@ font-1 = glyphicons16px:fontformat=truetype:pixelsize=18;antialias=true;3
 
 modules-left = battery0 battery1 cpu memory filesystem traffic
 modules-center = 
-modules-right = wlan date powermenu
+modules-right = wlan alsa xbacklight date powermenu
 
 ;tray-position = right
 ;tray-padding = 0
@@ -95,7 +95,7 @@ font-1 = glyphicons16px:fontformat=truetype:pixelsize=16;antialias=true;3
 
 modules-left = i3
 modules-center = 
-modules-right = alsa xbacklight
+modules-right = mpd
 
 ;tray-position = right
 ;tray-padding = 0
@@ -222,13 +222,13 @@ label-urgent-padding = 1
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true
@@ -238,7 +238,7 @@ type = internal/xbacklight
 
 format = <label> 
 format-prefix = " "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage%%
 
 [module/backlight-acpi]
@@ -335,7 +335,7 @@ type = internal/alsa
 
 format-volume = <label-volume>
 format-volume-prefix = " "
-format-volume-prefix-foreground = ${colors.primary}
+format-volume-prefix-foreground = ${colors.foreground-alt}
 
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
