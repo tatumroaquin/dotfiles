@@ -6,6 +6,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export LESSHISTFILE="/dev/null"
 export PASSWORD_STORE_DIR="$HOME/.local/share/.password-store"
+export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export CLICOLOR="1"
 export EDITOR="nvim"
 export VISUAL="nvim"
