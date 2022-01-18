@@ -19,8 +19,8 @@ case $state in
 
    still)
          if [[ -n "$2" ]]; then 
-            still=$2
-            feh --bg-fill --randomize --no-fehbg $walls/$still
+            image=$2
+            feh --bg-fill --no-fehbg $walls/$image
          else
             echo $error_msg
          fi
