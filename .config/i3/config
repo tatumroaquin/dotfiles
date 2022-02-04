@@ -84,6 +84,8 @@ bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drun#ssh -show combi
 
 # change focus
 bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
