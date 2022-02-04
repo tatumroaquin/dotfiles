@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # kill previous instances of this script before running
 # $$ refers to the current process which is $0
 for pid in `pgrep -f $0`; do
@@ -18,6 +17,9 @@ draining=0
 lowpower=0
 l_limit=$1
 u_limit=$2
+
+GLITCHES="$HOME/Audio/glitches"
+MECHANICAL="$HOME/Audio/mechanical"
 
 while true; do
    bat0=`cat /sys/class/power_supply/BAT0/capacity`
@@ -39,8 +41,9 @@ while true; do
       Full) 
          if [ $full -eq 0 ]; then
             full=1
-            dunstctl close 0
+            dunstctl close
             notify-send -t 0 'battery' "charged at $u_limit%"
+            paplay "$GLITCHES/glitch 31.wav"
          fi
          ;;
 
@@ -51,8 +54,9 @@ while true; do
 
          if [ $charging -eq 0 ]; then
             charging=1
-            dunstctl close 0
+            dunstctl close
             notify-send -u normal 'battery' 'charging'
+            paplay "$GLITCHES/glitch 5.wav"
             echo 'battery is charging'
          fi
       ;;
@@ -63,7 +67,7 @@ while true; do
 
          if [ $draining -eq 0 ]; then
             draining=1
-            dunstctl close 0
+            dunstctl close
             notify-send -u low 'battery' 'discharging'
             echo 'battery is discharging'
          fi
@@ -71,8 +75,9 @@ while true; do
          if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ]; then
             if [ $lowpower -eq 0 ]; then
                lowpower=1
-               dunstctl close 0
+               dunstctl close
                notify-send -u critical 'battery' 'low power'
+               paplay "$GLITCHES/glitch 7.wav"
                echo 'battery on low power'
             fi
          fi
