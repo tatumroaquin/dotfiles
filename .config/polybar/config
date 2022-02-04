@@ -66,8 +66,8 @@ cursor-scroll = ns-resize
 bottom = true
 width = 100%
 height = 30
-offset-x = 1%
-offset-y = 1%
+;offset-x = 1%
+;offset-y = 1%
 radius = 0
 fixed-center = false
 
