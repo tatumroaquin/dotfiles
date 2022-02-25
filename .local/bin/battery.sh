@@ -43,7 +43,7 @@ while true; do
             full=1
             dunstctl close
             notify-send -t 0 'battery' "charged at $u_limit%"
-            paplay "$GLITCHES/glitch 31.wav"
+            paplay "$GLITCHES/glitch 1.wav"
          fi
          ;;
 
@@ -56,7 +56,8 @@ while true; do
             charging=1
             dunstctl close
             notify-send -u normal 'battery' 'charging'
-            paplay "$GLITCHES/glitch 5.wav"
+            paplay "$GLITCHES/glitch 33.wav"
+            # 23 33 34
             echo 'battery is charging'
          fi
       ;;
@@ -77,7 +78,7 @@ while true; do
                lowpower=1
                dunstctl close
                notify-send -u critical 'battery' 'low power'
-               paplay "$GLITCHES/glitch 7.wav"
+               paplay "$MECHANICAL/2--alert.wav"
                echo 'battery on low power'
             fi
          fi
