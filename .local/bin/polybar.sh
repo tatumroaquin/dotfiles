@@ -2,7 +2,7 @@
 
 # Terminate already existing bar instances
 
-killall -q polybar
+killall -qw polybar
 
 # if your bars have IPC enabled, you can use:
 # polybar-msg cmd quit
