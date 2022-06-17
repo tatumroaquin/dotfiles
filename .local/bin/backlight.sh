@@ -4,15 +4,25 @@
 
 param=$1
 
+increase() {
+   num=`xbacklight -get`
+   xbacklight -set $((num*2))
+}
+
+decrease() {
+   num=`xbacklight -get`
+   xbacklight -set $((num/2))
+}
+
 case $param in
    up)
-      xbacklight -inc 2
+      increase
       dunstctl close 0
       level=`printf "%0.0f" $(xbacklight -get)`
       notify-send -u low "backlight" "increased to $level"
       ;;
    down)
-      xbacklight -dec 2
+      decrease
       dunstctl close 0
       level=`printf "%0.0f" $(xbacklight -get)`
       notify-send -u low "backlight" "decreased to $level"
