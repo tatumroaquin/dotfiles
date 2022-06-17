@@ -47,7 +47,7 @@ exec --no-startup-id picom
 
 # --- [ KEY BINDINGS ] ---
 
-bindsym $mod+i exec firefox
+bindsym $mod+i exec qutebrowser
 bindsym --release Print exec --no-startup-id $scripts/screenshot.sh screen
 bindsym Shift+Print exec --no-startup-id $scripts/screenshot.sh partial
 bindsym $mod+w exec --no-startup-id $scripts/wallpaper.sh random
