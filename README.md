@@ -1,5 +1,3 @@
 <h1 align="center">Arch Linux Dotfiles</h1>
 
-![2021-12-04_18 12 31](https://user-images.githubusercontent.com/19354579/144701280-a5885acf-3d73-431c-97ac-794f016e897c.png)
-
-![2021-12-04_18 14 01](https://user-images.githubusercontent.com/19354579/144701283-9efd4c23-cbbd-4fbe-9ce6-5765a014de00.png)
+![2022-06-18_01 07 26](https://user-images.githubusercontent.com/19354579/174326949-06b36d2f-cf30-4714-bfe3-c2eebe1b548a.png)
