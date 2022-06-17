@@ -40,7 +40,7 @@ module-margin-right = 1
 font-0 = TerminessTTF Nerd Font Mono:pixelsize=18;antialias=true;2
 font-1 = glyphicons16px:fontformat=truetype:pixelsize=18;antialias=true;3
 
-modules-left = battery0 battery1 cpu memory filesystem traffic
+modules-left = battery0 battery1 cpu memory filesystem
 modules-center = 
 modules-right = wlan alsa xbacklight date powermenu
 
@@ -152,10 +152,10 @@ label-mounted = %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-[module/traffic]
-type = custom/script
-exec = ~/.local/bin/traffic.sh
-tail = true
+;[module/traffic]
+;type = custom/script
+;exec = ~/.local/bin/traffic.sh
+;tail = true
 
 [module/bspwm]
 type = internal/bspwm
