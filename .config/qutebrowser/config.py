@@ -495,7 +495,7 @@ c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save
 ##   - lightness-cielab: Modify colors by converting them to CIELAB color space and inverting the L value. Not available with Qt < 5.14.
 ##   - lightness-hsl: Modify colors by converting them to the HSL color space and inverting the lightness (i.e. the "L" in HSL).
 ##   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
-# c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 
 ## Contrast for dark mode. This only has an effect when
 ## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
@@ -536,7 +536,7 @@ c.colors.webpage.darkmode.enabled = True
 ##   - always: Apply dark mode filter to all images.
 ##   - never: Never apply dark mode filter to any images.
 ##   - smart: Apply dark mode based on image content. Not available with Qt 5.15.0.
-# c.colors.webpage.darkmode.policy.images = 'smart'
+# c.colors.webpage.darkmode.policy.images = 'never'
 
 ## Which pages to apply dark mode to. The underlying Chromium setting has
 ## been removed in QtWebEngine 5.15.3, thus this setting is ignored
@@ -545,7 +545,7 @@ c.colors.webpage.darkmode.enabled = True
 ## Valid values:
 ##   - always: Apply dark mode filter to all frames, regardless of content.
 ##   - smart: Apply dark mode filter to frames based on background color.
-# c.colors.webpage.darkmode.policy.page = 'smart'
+c.colors.webpage.darkmode.policy.page = 'always'
 
 ## Threshold for inverting background elements with dark mode. Background
 ## elements with brightness above this threshold will be inverted, and
@@ -553,14 +553,14 @@ c.colors.webpage.darkmode.enabled = True
 ## 256 to never invert the color or to 0 to always invert it. Note: This
 ## behavior is the opposite of `colors.webpage.darkmode.threshold.text`!
 ## Type: Int
-# c.colors.webpage.darkmode.threshold.background = 0
+# c.colors.webpage.darkmode.threshold.background = 128
 
 ## Threshold for inverting text with dark mode. Text colors with
 ## brightness below this threshold will be inverted, and above it will be
 ## left as in the original, non-dark-mode page. Set to 256 to always
 ## invert text color or to 0 to never invert text color.
 ## Type: Int
-# c.colors.webpage.darkmode.threshold.text = 256
+# c.colors.webpage.darkmode.threshold.text = 180
 
 ## Value to use for `prefers-color-scheme:` for websites. The "light"
 ## value is only available with QtWebEngine 5.15.2+. On older versions,
@@ -572,7 +572,7 @@ c.colors.webpage.darkmode.enabled = True
 ##   - auto: Use the system-wide color scheme setting.
 ##   - light: Force a light theme.
 ##   - dark: Force a dark theme.
-# c.colors.webpage.preferred_color_scheme = 'auto'
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
@@ -681,7 +681,32 @@ c.colors.webpage.darkmode.enabled = True
 ## extracting it from the `location` parameter of the subscribe URL and
 ## URL-decoding it).
 ## Type: List of Url
-c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
+c.content.blocking.adblock.lists = [
+        #'https://gitlab.com/curben/urlhaus-filter/-/raw/master/urlhaus-filter.txt',
+        'https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt',
+        'https://easylist.to/easylist/easylist.txt',
+        'https://easylist.to/easylist/easyprivacy.txt',
+        'https://easylist.to/easylist/easyprivacy.txt',
+        'https://easylist.to/easylist/fanboy-social.txt',
+        'https://ewpratten.retrylife.ca/youtube_ad_blocklist/adblockplus.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2022.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/lan-block.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt',
+        'https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts',
+        'https://secure.fanboy.co.nz/fanboy-annoyance.txt',
+        'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt',
+        'https://www.i-dont-care-about-cookies.eu/abp/',
+]
 
 ## Enable the ad/host blocker
 ## Type: Bool
@@ -1107,7 +1132,7 @@ c.content.headers.do_not_track = True
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-# c.content.user_stylesheets = []
+c.content.user_stylesheets = []
 
 ## Enable WebGL.
 ## Type: Bool
@@ -2034,11 +2059,12 @@ c.scrolling.smooth = True
 ## the search engine name to the search term, e.g. `:open google
 ## qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'gg': 'https://google.com/search?q={}'}
+
+c.url.searchengines = {'DEFAULT': 'https://searx.tiekoetter.com/search?q={}', 'gg': 'https://google.com/search?q={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-# c.url.start_pages = ['https://start.duckduckgo.com']
+c.url.start_pages = ['https://searx.tiekoetter.com']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
@@ -2108,7 +2134,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'gg': 'https:/
 # config.bind('<Alt-7>', 'tab-focus 7')
 # config.bind('<Alt-8>', 'tab-focus 8')
 # config.bind('<Alt-9>', 'tab-focus -1')
-# config.bind('<Alt-m>', 'tab-mute')
+config.bind('<Ctrl-M>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
 # config.bind('<Ctrl-B>', 'scroll-page 0 -1')
@@ -2124,6 +2150,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', 'gg': 'https:/
 # config.bind('<Ctrl-Shift-T>', 'undo')
 # config.bind('<Ctrl-Shift-Tab>', 'nop')
 # config.bind('<Ctrl-Shift-W>', 'close')
+config.bind('<Ctrl-Shift-Y>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 # config.bind('<Ctrl-T>', 'open -t')
 # config.bind('<Ctrl-Tab>', 'tab-focus last')
 # config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
@@ -2173,6 +2200,8 @@ config.bind('J', 'tab-prev')
 # config.bind('b', 'set-cmd-text -s :quickmark-load')
 # config.bind('cd', 'download-clear')
 # config.bind('co', 'tab-only')
+config.bind('cm', 'clear-messages')
+config.bind('cs', 'config-source')
 # config.bind('d', 'tab-close')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
