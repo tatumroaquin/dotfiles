@@ -2060,11 +2060,19 @@ c.scrolling.smooth = True
 ## qutebrowser`.
 ## Type: Dict
 
-c.url.searchengines = {'DEFAULT': 'https://searx.tiekoetter.com/search?q={}', 'gg': 'https://google.com/search?q={}'}
+# c.url.searchengines = {'DEFAULT': 'https://searx.tiekoetter.com/search?q={}', 'gg': 'https://google.com/search?q={}'}
+c.url.searchengines = {
+'DEFAULT': 'https://start.duckduckgo.com/?q={}', 
+'ddg': 'https://start.duckduckgo.com/?q={}', 
+'sx': 'https://searx.tiekoetter.com/search?q={}', 
+'st': 'https://www.startpage.com/sp/search?q={}', 
+'gg': 'https://google.com/search?q={}'
+}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['https://searx.tiekoetter.com']
+# c.url.start_pages = ['https://searx.tiekoetter.com']
+c.url.start_pages = ['https://www.startpage.com']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
@@ -2186,6 +2194,7 @@ config.bind('J', 'tab-prev')
 # config.bind('R', 'reload -f')
 # config.bind('Sb', 'bookmark-list --jump')
 # config.bind('Sh', 'history')
+config.bind('Sd', 'history-clear')
 # config.bind('Sq', 'bookmark-list')
 # config.bind('Ss', 'set')
 # config.bind('T', 'set-cmd-text -sr :tab-focus')
