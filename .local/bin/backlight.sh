@@ -6,12 +6,12 @@ param=$1
 
 increase() {
    num=`xbacklight -get`
-   xbacklight -set $((num*2))
+   xbacklight -set $((num*1.5))
 }
 
 decrease() {
    num=`xbacklight -get`
-   xbacklight -set $((num/2))
+   xbacklight -set $((num/1.5))
 }
 
 case $param in
