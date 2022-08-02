@@ -1271,7 +1271,7 @@ c.fonts.debug_console = 'default_size default_family'
 ## font setting, it's replaced with the fonts listed here. If set to an
 ## empty value, a system-specific monospace default is used.
 ## Type: List of Font, or Font
-c.fonts.default_family = 'Roboto Mono'
+c.fonts.default_family = 'NotoMono Nerd Font Mono'
 
 ## Default font size to use. Whenever "default_size" is used in a font
 ## setting, it's replaced with the size listed here. Valid values are
@@ -1342,7 +1342,7 @@ c.fonts.downloads = 'default_size default_family'
 
 ## Font family for standard fonts.
 ## Type: FontFamily
-c.fonts.web.family.standard = 'Roboto Mono'
+c.fonts.web.family.standard = 'NotoMono Nerd Font Mono'
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
@@ -1443,7 +1443,7 @@ c.fonts.web.size.minimum = 18
 
 ## Make characters in hint strings uppercase.
 ## Type: Bool
-# c.hints.uppercase = False
+c.hints.uppercase = True
 
 ## Maximum time (in minutes) between two history items for them to be
 ## considered being from the same browsing session. Items with less time
