@@ -682,10 +682,8 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## URL-decoding it).
 ## Type: List of Url
 c.content.blocking.adblock.lists = [
-        #'https://gitlab.com/curben/urlhaus-filter/-/raw/master/urlhaus-filter.txt',
         'https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt',
         'https://easylist.to/easylist/easylist.txt',
-        'https://easylist.to/easylist/easyprivacy.txt',
         'https://easylist.to/easylist/easyprivacy.txt',
         'https://easylist.to/easylist/fanboy-social.txt',
         'https://ewpratten.retrylife.ca/youtube_ad_blocklist/adblockplus.txt',
@@ -702,6 +700,7 @@ c.content.blocking.adblock.lists = [
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/thirdparties/urlhaus-filter/urlhaus-filter-online.txt',
         'https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts',
         'https://secure.fanboy.co.nz/fanboy-annoyance.txt',
         'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt',
@@ -2208,7 +2207,8 @@ config.bind('Sd', 'history-clear')
 # config.bind('ad', 'download-cancel')
 # config.bind('b', 'set-cmd-text -s :quickmark-load')
 # config.bind('cd', 'download-clear')
-# config.bind('co', 'tab-only')
+config.bind('co', 'tab-only --prev')
+config.bind('ci', 'tab-only --next')
 config.bind('cm', 'clear-messages')
 config.bind('cs', 'config-source')
 # config.bind('d', 'tab-close')
