@@ -70,17 +70,16 @@ while true; do
             draining=1
             dunstctl close
             notify-send -u low 'battery' 'discharging'
+            paplay "$MECHANICAL/5-mech.wav"
             echo 'battery is discharging'
          fi
 
          if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ]; then
-            if [ $lowpower -eq 0 ]; then
-               lowpower=1
-               dunstctl close
-               notify-send -u critical 'battery' 'low power'
-               paplay "$MECHANICAL/2--alert.wav"
-               echo 'battery on low power'
-            fi
+            [ $lowpower -eq 0 ] && lowpower=1
+            dunstctl close
+            notify-send -u critical 'battery' 'low power'
+            paplay "$MECHANICAL/2-mech.wav"
+            echo 'battery on low power'
          fi
       ;;
    esac
