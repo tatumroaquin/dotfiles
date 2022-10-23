@@ -74,8 +74,8 @@ while true; do
             echo 'battery is discharging'
          fi
 
-         if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ]; then
-            [ $lowpower -eq 0 ] && lowpower=1
+         if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ] && [ $lowpower -eq 0 ]; then
+            lowpower=1
             dunstctl close
             notify-send -u critical 'battery' 'low power'
             paplay "$MECHANICAL/2-mech.wav"
