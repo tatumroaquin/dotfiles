@@ -1,0 +1,7 @@
+add table inet filter
+add chain inet filter input { type filter hook input priority filter; policy drop; }
+add rule inet filter input ct state invalid drop
+add rule inet filter input ct state { established, related } accept
+add rule inet filter input iifname "lo" accept
+add rule inet filter input icmp type { echo-request, echo-reply } accept
+add rule inet filter input icmpv6 type { echo-request, echo-reply } accept

@@ -1,0 +1,10 @@
+[includeIf "gitdir:~/Code/tatum/"]
+  path = ./config-tatum
+  #path = ~/.config/git/config-tatum
+
+[includeIf "gitdir:~/Code/muxonix/"]
+  path = ./config-muxonix
+  #path = ~/.config/git/config-muxonix
+
+[includeIf "gitdir:*"]
+  path = ./config-tatum

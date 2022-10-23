@@ -1,0 +1,1 @@
+/home/tatum/.config/zsh/.zshenv
