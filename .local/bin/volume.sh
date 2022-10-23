@@ -20,6 +20,9 @@ case $param in
 
    mute)
       amixer -q -c 0 set Master toggle
+      amixer -q -c 0 set Headphone,0 toggle
+      amixer -q -c 0 set Headphone,1 toggle
+      amixer -q -c 0 set Speaker toggle
       state=`amixer get Master | tail -1 | awk -F "[][]" '{print $6}'`
 
       if [ $state == "off" ]; then
