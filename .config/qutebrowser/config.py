@@ -1211,6 +1211,7 @@ c.downloads.location.suggestion = 'both'
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
 # c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['st', '-e', 'nvim', '{file}']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -2230,6 +2231,7 @@ config.bind('cs', 'config-source')
 # config.bind('gb', 'set-cmd-text -s :bookmark-load')
 # config.bind('gd', 'download')
 # config.bind('gf', 'view-source')
+config.bind('ge', 'view-source --edit')
 # config.bind('gg', 'scroll-to-perc 0')
 # config.bind('gi', 'hint inputs --first')
 # config.bind('gm', 'tab-move')
