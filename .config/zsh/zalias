@@ -22,7 +22,8 @@ alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
   cfg="cd $XDG_CONFIG_HOME" \
   i3cfg="nvim $XDG_CONFIG_HOME/i3/config" \
   picfg="nvim $XDG_CONFIG_HOME/picom/picom.conf" \
-  plcfg="nvim $XDG_CONFIG_HOME/polybar/config.ini"
+  plcfg="nvim $XDG_CONFIG_HOME/polybar/config.ini" \
+  qtcfg="nvim $XDG_CONFIG_HOME/qutebrowser/config.py"
 
 # HOME MEDIA FOLDERS
 alias code="cd ~/Code" \
@@ -33,7 +34,9 @@ alias code="cd ~/Code" \
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
-  ttr="transmission-remote"
+  ttr="transmission-remote" \
+  ttl="transmission-remote --list" \
+  tta="transmission-remote -a"
 
 alias bin="cd ~/.local/bin"
-alias {v,vi,vim}="nvim"
+#alias {v,vi,vim}="nvim"
