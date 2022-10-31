@@ -2065,7 +2065,8 @@ c.url.searchengines = {
 'ddg': 'https://start.duckduckgo.com/?q={}', 
 'sx': 'https://searx.tiekoetter.com/search?q={}', 
 'st': 'https://www.startpage.com/sp/search?q={}', 
-'gg': 'https://google.com/search?q={}'
+'gg': 'https://google.com/search?q={}',
+'yt': 'https://www.youtube.com/results?search_query={}'
 }
 
 ## Page(s) to open at the start.
