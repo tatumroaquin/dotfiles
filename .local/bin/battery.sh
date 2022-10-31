@@ -27,11 +27,11 @@ while true; do
    stat0=`cat /sys/class/power_supply/BAT0/status`
    stat1=`cat /sys/class/power_supply/BAT1/status`
 
-   if [ $stat0 == "Full" ] && [ $stat1 == "Full" ]; then
+   if [ "$stat0" = "Full" ] && [ "$stat1" = "Full" ]; then
       state="Full"
    elif [ $bat0 -ge $u_limit ] && [ $bat1 -ge $u_limit ]; then
       state="Full"
-   elif [ $stat0 == "Charging" ] || [ $stat1 == "Charging" ]; then
+   elif [ "$stat0" = "Charging" ] || [ "$stat1" = "Charging" ]; then
       state="Charging"
    else
       state="Discharging"
