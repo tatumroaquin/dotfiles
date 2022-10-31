@@ -17,3 +17,7 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 export XINITRC="$XDG_CONFIG_HOME/x/xinitrc"
+
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_CLI_TELEMETRY_OPTOUT="true"
+export PATH="$PATH:$DOTNET_ROOT"
