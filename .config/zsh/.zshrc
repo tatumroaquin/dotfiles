@@ -26,5 +26,5 @@ alias help="run-help"
 [[ -f $HOME/.config/zsh/.zfuncs ]] && source $HOME/.config/zsh/.zfuncs
 
 # (NVM) Node Version Manager
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
