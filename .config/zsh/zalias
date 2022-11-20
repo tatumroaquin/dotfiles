@@ -1,0 +1,47 @@
+# ZSH CONFIG
+alias ze="nvim $HOME/.zshenv" \
+	reze="source $HOME/.zshenv" \
+	zr="nvim $ZDOTDIR/.zshrc" \
+	rezr="source $ZDOTDIR/.zshrc" \
+	za="nvim $ZDOTDIR/zalias" \
+	reza="source $ZDOTDIR/zalias" \
+	zf="nvim $ZDOTDIR/zfuncs" \
+	rezf="source $ZDOTDR/zfuncs"
+
+# DOTFILES REPO
+alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME"
+
+# SHELL SCRIPTS
+alias bin="cd ~/.local/bin"
+
+# LESS COLORS
+alias ls="ls --color=auto" \
+	l="ls" \
+	la="ls -la" \
+	lh="ls -lh"
+
+# FOLDERS SHORTCUTS
+alias code="cd $HOME/Code"
+alias udemy="code; cd udemy"
+alias walmart="udemy; cd nodejs-express-mongodb-bootcamp/walmart-scrap"
+alias tsdb="code; cd php/the-sensor-db"
+alias gbk="code; nvim php/the-sensor-db/gbk.php"
+alias inj="code; nvim php/the-sensor-db/injections.txt"
+alias p2="ssh tatum@192.168.0.104"
+alias p4="ssh tatum@192.168.0.105"
+
+alias mvs="cd ~/Videos/Movies"
+alias anm="cd ~/Videos/Anime"
+alias school="cd /mnt/d/School"
+alias inet="school; cd INET"
+
+alias books="cd ~/Books"
+alias dsk="cd ~/Desktop"
+alias dls="cd ~/Downloads"
+alias dox="cd ~/Documents"
+
+# APPLICATIONS
+alias {v,vi,vim}="nvim"
+alias ytdl="youtube-dl"
+
+alias cfg="cd $XDG_CONFIG_HOME"
