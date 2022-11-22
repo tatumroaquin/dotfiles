@@ -192,5 +192,6 @@ exec_always --no-startup-id $scripts/battery.sh 30 99
 exec_always --no-startup-id $scripts/wallpaper.sh random
 exec_always --no-startup-id picom
 exec_always --no-startup-id $scripts/polybar/start.sh
+exec --no-startup-id fcitx5 -d
 # ---
 
