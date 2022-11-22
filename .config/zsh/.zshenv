@@ -7,7 +7,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export PROMPT="%F{cyan}%n%F{white}@%F{green}%m %F{yellow}%1~%f"$'\n'"%# "
+export PROMPT="%F{cyan}%n%F{white}@%F{green}%m %F{yellow}%1~%f\${vcs_info_msg_0_}"$'\n'"%# "
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$XDG_DATA_HOME/zsh/histfile"
 export HISTSIZE=2000
@@ -17,7 +17,7 @@ export INPUTRC="$ZDOTDIR/inputrc"
 export LESSHISTFILE="/dev/null"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
-export NVM_DIR="$HOME/.local/share/nvm"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 export GTK_IM_MODULE=fcitx
