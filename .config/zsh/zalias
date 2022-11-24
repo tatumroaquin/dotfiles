@@ -42,6 +42,6 @@ alias dox="cd ~/Documents"
 
 # APPLICATIONS
 alias {v,vi,vim}="nvim"
-alias ytdl="youtube-dl"
+alias ytdl="yt-dlp"
 
 alias cfg="cd $XDG_CONFIG_HOME"
