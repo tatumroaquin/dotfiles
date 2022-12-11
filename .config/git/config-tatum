@@ -2,6 +2,6 @@
 	name = Tatum Roaquin
 	email = 19354579+tatumroaquin@users.noreply.github.com
 [status]
-	showUntrackedFiles = no
+	showUntrackedFiles = normal
 [init]
 	defaultBranch = main

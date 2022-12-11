@@ -2,6 +2,6 @@
 	name = muxonix
 	email = 114975781+muxonix@users.noreply.github.com
 [status]
-	showUntrackedFiles = no
+	showUntrackedFiles = normal
 [init]
 	defaultBranch = main
