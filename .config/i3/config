@@ -55,13 +55,13 @@ bindsym --release Control+Print exec --no-startup-id $scripts/screenshot.sh scre
 bindsym Shift+Print exec --no-startup-id $scripts/screenshot.sh partial
 bindsym $mod+w exec --no-startup-id $scripts/wallpaper.sh random
 
-# volume controls (alsa)
-bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/volume.sh up
-bindsym XF86AudioLowerVolume exec --no-startup-id $scripts/volume.sh down
-bindsym XF86AudioMute exec --no-startup-id $scripts/volume.sh mute
-bindsym XF86AudioMicMute exec --no-startup-id $scripts/volume.sh silence
+# volume controls (pamixer)
+bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/audioctl.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id $scripts/audioctl.sh down
+bindsym XF86AudioMute exec --no-startup-id $scripts/audioctl.sh mute
+bindsym XF86AudioMicMute exec --no-startup-id $scripts/audioctl.sh silence
 
-# backlight controls (xbacklight)
+# backlight controls (light)
 bindsym XF86MonBrightnessUp exec --no-startup-id $scripts/backlight.sh up
 bindsym XF86MonBrightnessDown exec --no-startup-id $scripts/backlight.sh down
 
