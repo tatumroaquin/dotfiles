@@ -9,7 +9,7 @@ for pid in `pgrep -f $0`; do
 done
 
 state=$1
-walls="$HOME/Photos/wallpaper"
+walls="$HOME/Photos/wallpapers"
 error_msg="Usage: $0 random, $0 slide <seconds> or $0 still <wallpaper.png>"
 
 case $state in
