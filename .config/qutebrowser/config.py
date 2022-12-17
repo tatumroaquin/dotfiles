@@ -686,7 +686,6 @@ c.content.blocking.adblock.lists = [
         'https://easylist.to/easylist/easylist.txt',
         'https://easylist.to/easylist/easyprivacy.txt',
         'https://easylist.to/easylist/fanboy-social.txt',
-        'https://ewpratten.retrylife.ca/youtube_ad_blocklist/adblockplus.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt',
@@ -699,6 +698,7 @@ c.content.blocking.adblock.lists = [
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/quick-fixes.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt',
+        'https://github.com/uBlockOrigin/uAssets/raw/master/filters/ubol-filters.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt',
         'https://github.com/uBlockOrigin/uAssets/raw/master/thirdparties/urlhaus-filter/urlhaus-filter-online.txt',
         'https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts',
@@ -1270,7 +1270,7 @@ c.fonts.debug_console = 'default_size default_family'
 ## font setting, it's replaced with the fonts listed here. If set to an
 ## empty value, a system-specific monospace default is used.
 ## Type: List of Font, or Font
-c.fonts.default_family = 'NotoMono Nerd Font Mono'
+c.fonts.default_family = 'Hack Nerd Font Mono'
 
 ## Default font size to use. Whenever "default_size" is used in a font
 ## setting, it's replaced with the size listed here. Valid values are
