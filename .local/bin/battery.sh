@@ -20,6 +20,15 @@ u_limit=$2
 
 GLITCHES="$HOME/Audio/glitches"
 MECHANICAL="$HOME/Audio/mechanical"
+tagname="battery"
+appname="battery"
+
+notify() {
+  notify-send -a $appname -u $1 -i $2 \
+    -h string:x-dunst-stack-tag:$tagname \
+    -h int:value:"$4" "$3: $4%"
+  paplay "$5"
+}
 
 while true; do
    bat0=`cat /sys/class/power_supply/BAT0/capacity`
@@ -41,9 +50,7 @@ while true; do
       Full) 
          if [ $full -eq 0 ]; then
             full=1
-            dunstctl close
-            notify-send -t 0 'battery' "charged at $u_limit%"
-            paplay "$GLITCHES/glitch 1.wav"
+            notify normal battery-full "charged at" $bat0 "$GLITCHES/glitch 1.wav"
          fi
          ;;
 
@@ -54,11 +61,8 @@ while true; do
 
          if [ $charging -eq 0 ]; then
             charging=1
-            dunstctl close
-            notify-send -u normal 'battery' 'charging'
-            paplay "$GLITCHES/glitch 33.wav"
+            notify normal battery-medium "charging" $bat0 "$GLITCHES/glitch 33.wav"
             # 23 33 34
-            echo 'battery is charging'
          fi
       ;;
 
@@ -71,7 +75,6 @@ while true; do
             dunstctl close
             notify-send -u low 'battery' 'discharging'
             paplay "$MECHANICAL/5-mech.wav"
-            echo 'battery is discharging'
          fi
 
          if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ] && [ $lowpower -eq 0 ]; then
@@ -79,7 +82,6 @@ while true; do
             dunstctl close
             notify-send -u critical 'battery' 'low power'
             paplay "$MECHANICAL/2-mech.wav"
-            echo 'battery on low power'
          fi
       ;;
    esac
