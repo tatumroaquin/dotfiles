@@ -1,0 +1,42 @@
+# LS COLORED OUTPUT
+alias ls="ls --color=auto"
+alias la="ls -la"
+alias lh="ls -lh"
+alias ll="ls -l"
+alias lha="ls -lha"
+
+# ZSH CONFIG ALIAS
+alias ze="nvim $HOME/.zshenv" \
+  reze="source $HOME/.zshenv" \
+  zp="nvim $ZDOTDIR/.zprofile" \
+  rezp="source $ZDOTDIR/.zprofile" \
+  zr="nvim $ZDOTDIR/.zshrc" \
+  rezr="source $ZDOTDIR/.zshrc" \
+  za="nvim $ZDOTDIR/zalias" \
+  reza="source $ZDOTDIR/zalias" \
+  zf="nvim $ZDOTDIR/zfuncs" \
+  rezf="source $ZDOTDIR/zfuncs"
+
+# DOT FILES RELATED
+alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
+  cfg="cd $XDG_CONFIG_HOME" \
+  i3cfg="nvim $XDG_CONFIG_HOME/i3/config" \
+  picfg="nvim $XDG_CONFIG_HOME/picom/picom.conf" \
+  plcfg="nvim $XDG_CONFIG_HOME/polybar/config.ini" \
+  qtcfg="nvim $XDG_CONFIG_HOME/qutebrowser/config.py"
+
+# HOME MEDIA FOLDERS
+alias code="cd ~/Code" \
+  pix="cd $HOME/Pictures" \
+  dls="cd $HOME/Downloads" \
+  dox="cd $HOME/Documents" \
+  anm="cd $HOME/Videos/Anime"
+
+# APPLICATIONS
+alias ttd="transmission-daemon" \
+  ttr="transmission-remote" \
+  ttl="transmission-remote --list" \
+  tta="transmission-remote --add"
+
+alias bin="cd ~/.local/bin"
+#alias {v,vi,vim}="nvim"

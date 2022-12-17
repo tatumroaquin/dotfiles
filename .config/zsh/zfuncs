@@ -1,0 +1,3 @@
+getip() {
+  echo `curl -sL ifconfig.me/ip`
+}
