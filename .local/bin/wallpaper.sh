@@ -9,7 +9,7 @@ for pid in `pgrep -f $0`; do
 done
 
 state=$1
-walls="$HOME/Photos/wallpapers"
+walls="$HOME/Pictures/wallpapers"
 error_msg="Usage: $0 random, $0 slide <seconds> or $0 still <wallpaper.png>"
 
 case $state in
@@ -31,7 +31,7 @@ case $state in
          time=$2
 
          while true; do
-            walls=`find "$HOME/Photos/wallpaper" -type f | shuf`
+            walls=`find "$HOME/Pictures/wallpaper" -type f | shuf`
             while read w; do
                feh --no-fehbg --bg-fill "$w"
                sleep $time
