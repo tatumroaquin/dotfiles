@@ -34,7 +34,7 @@ exec_always --no-startup-id $scripts/battery.sh 30 98
 exec_always --no-startup-id $scripts/polybar.sh
 exec_always --no-startup-id $scripts/wallpaper.sh random
 exec_always --no-startup-id fcitx5 -d
-exec_always --no-startup-id $scripts/redshift.sh
+# exec_always --no-startup-id $scripts/redshift.sh
 
 exec --no-startup-id picom
 
