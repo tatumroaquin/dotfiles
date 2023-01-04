@@ -37,6 +37,7 @@ alias ttd="transmission-daemon" \
   ttr="transmission-remote" \
   ttl="transmission-remote --list" \
   tta="transmission-remote --add"
+alias ytdl="yt-dlp"
 
 alias bin="cd ~/.local/bin"
-#alias {v,vi,vim}="nvim"
+alias {v,nv,nvi}="nvim"
