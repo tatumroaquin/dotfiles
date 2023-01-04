@@ -19,7 +19,7 @@ decrease() {
 
    num=`printf "%0.0f" $(light -G)`
    sub=`printf "%0.0f" $(echo "$num / 1.5" | bc)`
-   [ ${num%.*} -le 2 ] && sub=$num && return
+   [ ${num%.*} -le 1 ] && sub=$num && return
    light -S $sub
 }
 
