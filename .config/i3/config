@@ -1,4 +1,4 @@
-#set $meta Mod4
+set $win Mod4
 #set $alt Mod1
 set $mod Mod1
 
@@ -50,10 +50,18 @@ exec --no-startup-id picom
 
 # --- [ KEY BINDINGS ] ---
 
+# web browser
 bindsym $mod+i exec --no-startup-id qutebrowser
+
+# screenshot script
 bindsym --release Control+Print exec --no-startup-id $scripts/screenshot.sh screen
 bindsym Shift+Print exec --no-startup-id $scripts/screenshot.sh partial
+
+# wallpaper script
 bindsym $mod+w exec --no-startup-id $scripts/wallpaper.sh random
+
+# lockscreen script
+bindsym $win+l exec --no-startup-id $scripts/lockscreen.sh
 
 # volume controls (pamixer)
 bindsym XF86AudioRaiseVolume exec --no-startup-id $scripts/audioctl.sh up
