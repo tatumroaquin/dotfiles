@@ -30,7 +30,9 @@ alias code="cd ~/Code" \
   pix="cd $HOME/Pictures" \
   dls="cd $HOME/Downloads" \
   dox="cd $HOME/Documents" \
-  anm="cd $HOME/Videos/Anime"
+  dsk="cd $HOME/Desktop" \
+  anm="cd $HOME/Videos/Anime" \
+  aud="cd $HOME/Audio"
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
