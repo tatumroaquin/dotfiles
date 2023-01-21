@@ -35,6 +35,7 @@ while true; do
    bat1=`cat /sys/class/power_supply/BAT1/capacity`
    stat0=`cat /sys/class/power_supply/BAT0/status`
    stat1=`cat /sys/class/power_supply/BAT1/status`
+   charge=$(((bat0+bat1)/2))
 
    if [ "$stat0" = "Full" ] && [ "$stat1" = "Full" ]; then
       state="Full"
@@ -50,7 +51,7 @@ while true; do
       Full) 
          if [ $full -eq 0 ]; then
             full=1
-            notify normal battery-full "charged at" $bat0 "$GLITCHES/glitch 1.wav"
+            notify normal battery-full "charged at" $charge "$GLITCHES/glitch 1.wav"
          fi
          ;;
 
@@ -61,7 +62,7 @@ while true; do
 
          if [ $charging -eq 0 ]; then
             charging=1
-            notify normal battery-medium "charging" $bat0 "$GLITCHES/glitch 33.wav"
+            notify normal battery-medium "charging" $charge "$GLITCHES/glitch 33.wav"
             # 23 33 34
          fi
       ;;
@@ -72,16 +73,12 @@ while true; do
 
          if [ $draining -eq 0 ]; then
             draining=1
-            dunstctl close
-            notify-send -u low 'battery' 'discharging'
-            paplay "$MECHANICAL/5-mech.wav"
+            notify low battery "discharging" $charge "$GLITCHES/glitch 1.wav"
          fi
 
          if [ $bat0 -le $l_limit ] && [ $bat1 -le $l_limit ] && [ $lowpower -eq 0 ]; then
             lowpower=1
-            dunstctl close
-            notify-send -u critical 'battery' 'low power'
-            paplay "$MECHANICAL/2-mech.wav"
+            notify critical battery-low "low power" $charge "$GLITCHES/glitch 13.wav"
          fi
       ;;
    esac
