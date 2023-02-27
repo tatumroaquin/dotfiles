@@ -32,6 +32,7 @@ alias code="cd ~/Code" \
   dox="cd $HOME/Documents" \
   dsk="cd $HOME/Desktop" \
   anm="cd $HOME/Videos/Anime" \
+  vid="cd $HOME/Videos" \
   aud="cd $HOME/Audio"
 
 # APPLICATIONS
