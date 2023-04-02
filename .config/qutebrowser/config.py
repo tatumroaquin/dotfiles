@@ -1445,7 +1445,68 @@ c.fonts.web.size.minimum = 18
 ## CSS selectors used to determine which elements on a page should have
 ## hints.
 ## Type: Dict
-# c.hints.selectors = {'all': ['a', 'area', 'textarea', 'select', 'input:not([type="hidden"])', 'button', 'frame', 'iframe', 'img', 'link', 'summary', '[contenteditable]:not([contenteditable="false"])', '[onclick]', '[onmousedown]', '[role="link"]', '[role="option"]', '[role="button"]', '[ng-click]', '[ngClick]', '[data-ng-click]', '[x-ng-click]', '[tabindex]'], 'links': ['a[href]', 'area[href]', 'link[href]', '[role="link"][href]'], 'images': ['img'], 'media': ['audio', 'img', 'video'], 'url': ['[src]', '[href]'], 'inputs': ['input[type="text"]', 'input[type="date"]', 'input[type="datetime-local"]', 'input[type="email"]', 'input[type="month"]', 'input[type="number"]', 'input[type="password"]', 'input[type="search"]', 'input[type="tel"]', 'input[type="time"]', 'input[type="url"]', 'input[type="week"]', 'input:not([type])', '[contenteditable]:not([contenteditable="false"])', 'textarea']}
+c.hints.selectors = {
+    'all': [
+        'a',
+        'th',
+        'li',
+        'area',
+        'textarea',
+        'select',
+        'input:not([type="hidden"])',
+        'button',
+        'frame',
+        'iframe',
+        'img',
+        'link',
+        'summary',
+        '[contenteditable]:not([contenteditable="false"])',
+        '[onclick]',
+        '[onmousedown]',
+        '[role="link"]',
+        '[role="option"]',
+        '[role="button"]',
+        '[ng-click]',
+        '[ngClick]',
+        '[data-ng-click]',
+        '[x-ng-click]',
+        '[tabindex]'
+    ],
+    'links': [
+        'a[href]',
+        'area[href]',
+        'link[href]',
+        '[role="link"][href]'
+    ],
+    'images': ['img'],
+    'media': [
+        'audio',
+        'img',
+        'video'
+    ],
+    'url': [
+        '[src]',
+        '[href]'
+    ],
+    'inputs': [
+        'input[type="text"]',
+        'input[type="date"]',
+        'input[type="datetime-local"]',
+        'input[type="email"]',
+        'input[type="month"]',
+        'input[type="number"]',
+        'input[type="password"]',
+        'input[type="search"]',
+        'input[type="tel"]',
+        'input[type="time"]',
+        'input[type="url"]',
+        'input[type="week"]',
+        'input:not([type])',
+        '[contenteditable]:not([contenteditable="false"])',
+        'textarea'
+    ]
+
+}
 
 ## Make characters in hint strings uppercase.
 ## Type: Bool
@@ -2438,3 +2499,11 @@ config.bind('<', 'tab-move -')
 # config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
+
+## Domains List
+domains_list = [
+        'github.com'
+]
+
+for domain in domains_list:
+    config.set('content.javascript.can_access_clipboard', True, domain)
