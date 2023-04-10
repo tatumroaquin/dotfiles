@@ -33,7 +33,8 @@ alias code="cd ~/Code" \
   dsk="cd $HOME/Desktop" \
   anm="cd $HOME/Videos/Anime" \
   vid="cd $HOME/Videos" \
-  aud="cd $HOME/Audio"
+  aud="cd $HOME/Audio" \
+  cv="cd $HOME/Documents/cv"
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
