@@ -758,7 +758,10 @@ c.content.blocking.method = 'both'
 ## given page, use the `content.blocking.enabled` setting with a URL
 ## pattern instead.
 ## Type: List of UrlPattern
-# c.content.blocking.whitelist = []
+c.content.blocking.whitelist = [
+        'http://127.0.0.1:*',
+        'http://localhost:*',
+]
 
 ## Enable support for the HTML 5 web application cache feature. An
 ## application cache acts like an HTTP cache in some sense. For documents
