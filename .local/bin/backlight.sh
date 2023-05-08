@@ -8,8 +8,8 @@ appname="light"
 tagname="brightness"
 
 increase() {
-   num=`printf "%0.0f" $(light -G)`
-   add=`printf "%0.0f" $(echo "$num * 1.5" | bc)`
+   num=`printf "%0.2f" $(light -G)`
+   add=`printf "%0.2f" $(echo "$num * 1.3" | bc)`
    light -S $add
 }
 
@@ -17,9 +17,9 @@ decrease() {
    #num=`xbacklight -get`
    #xbacklight -set `echo $num/1.5 | bc`
 
-   num=`printf "%0.0f" $(light -G)`
-   sub=`printf "%0.0f" $(echo "$num / 1.5" | bc)`
-   [ ${num%.*} -le 1 ] && sub=$num && return
+   num=`printf "%0.2f" $(light -G)`
+   sub=`printf "%0.2f" $(echo "$num / 1.3" | bc)`
+   [ ${num%.*} -lt 1 ] && sub=$num && return
    light -S $sub
 }
 
