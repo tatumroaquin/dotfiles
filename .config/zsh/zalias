@@ -45,3 +45,4 @@ alias ytdl="yt-dlp"
 
 alias bin="cd ~/.local/bin"
 alias {v,nv,nvi}="nvim"
+alias vimrc="cd $XDG_CONFIG_HOME/nvim"
