@@ -34,7 +34,8 @@ alias code="cd ~/Code" \
   anm="cd $HOME/Videos/Anime" \
   vid="cd $HOME/Videos" \
   aud="cd $HOME/Audio" \
-  cv="cd $HOME/Documents/cv"
+  cv="cd $HOME/Documents/cv" \
+  fem="code; cd frontendmentor.io"
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
