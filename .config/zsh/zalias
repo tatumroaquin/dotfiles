@@ -35,15 +35,17 @@ alias code="cd ~/Code" \
   vid="cd $HOME/Videos" \
   aud="cd $HOME/Audio" \
   cv="cd $HOME/Documents/cv" \
-  fem="code; cd frontendmentor.io"
+  fem="code; cd frontendmentor.io" \
+  cs="code; cd C#"
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
   ttr="transmission-remote" \
   ttl="transmission-remote --list" \
-  tta="transmission-remote --add"
-alias ytdl="yt-dlp"
+  tta="transmission-remote --add" \
+  tsh="transmission-show" \
+  alias ytdl="yt-dlp"
 
 alias bin="cd ~/.local/bin"
 alias {v,nv,nvi}="nvim"
-alias vimrc="cd $XDG_CONFIG_HOME/nvim"
+alias vimrc="cd $XDG_CONFIG_HOME/nvim/lua/core"
