@@ -34,6 +34,7 @@ alias code="cd ~/Code" \
   anm="cd $HOME/Videos/Anime" \
   vid="cd $HOME/Videos" \
   aud="cd $HOME/Audio" \
+  mus="cd $HOME/Music" \
   cv="cd $HOME/Documents/cv" \
   fem="code; cd frontendmentor.io" \
   cs="code; cd C#"
