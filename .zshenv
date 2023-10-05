@@ -10,6 +10,7 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
 export CLICOLOR="1"
 export EDITOR="nvim"
 export VISUAL="nvim"
+export SYSTEMD_EDITOR="nvim"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 
 export GTK_IM_MODULE=fcitx
