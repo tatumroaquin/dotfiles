@@ -23,6 +23,7 @@ c.aliases = {
     "wq": "quit --save",
     "wqa": "quit --save",
     "json": "spawn --userscript format_json native",
+    "mpv": "spawn --userscript view_in_mpv native",
 }
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
