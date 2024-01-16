@@ -1,7 +1,7 @@
 #!/bin/sh
 
 INPUT_GROUP="$(fcitx5-remote -q)"
-INPUT_METHOD="US"
+INPUT_METHOD="unknown"
 
 case "$(fcitx5-remote -n)" in
   'keyboard-us')
