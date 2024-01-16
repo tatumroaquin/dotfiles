@@ -14,13 +14,15 @@ error_msg="Usage: $0 random, $0 slide <seconds> or $0 still <wallpaper.png>"
 
 case $state in
    random)
-      feh -r --bg-fill --randomize --no-fehbg $walls
+      # feh -r --bg-fill --randomize --no-fehbg $walls
+      wal -i "$walls"
    ;;
 
    still)
          if [[ -n "$2" ]]; then 
             image=$2
-            feh --bg-fill --no-fehbg $walls/$image
+            # feh --bg-fill --no-fehbg $walls/$image
+            wal -i "$walls/$image"
          else
             echo $error_msg
          fi
@@ -33,7 +35,8 @@ case $state in
          while true; do
             walls=`find "$HOME/Pictures/wallpaper" -type f | shuf`
             while read w; do
-               feh --no-fehbg --bg-fill "$w"
+               # feh --no-fehbg --bg-fill "$w"
+               wal -i "$w"
                sleep $time
             done < <(echo $walls)
          done
