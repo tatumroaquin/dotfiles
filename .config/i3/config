@@ -36,12 +36,14 @@ exec_always --no-startup-id $scripts/wallpaper.sh random
 exec_always --no-startup-id fcitx5 -d
 # exec_always --no-startup-id $scripts/redshift.sh
 
+# autolock and suspend when idle for 30 minutes, run i3lock 10 seconds before suspension
+exec_always --no-startup-id $scripts/autolock.sh 30 300
+
 exec --no-startup-id picom
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
+# exec_always --no-startup-id xss-lock --transfer-sleep-lock -- $scripts/lockscreen.sh
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 # exec --no-startup-id nm-applet
