@@ -29,6 +29,7 @@ gaps outer 2
 set $scripts $HOME/.local/bin
 
 exec_always --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
+exec_always --no-startup-id $scripts/xremap.sh
 exec_always --no-startup-id $scripts/touchpad.sh
 exec_always --no-startup-id $scripts/battery.sh 30 98
 exec_always --no-startup-id $scripts/polybar.sh
@@ -218,9 +219,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "pause" {
-  bindsym $mod+p mode "default"
+  bindsym $mod+semicolon mode "default"
 }
-bindsym $mod+p mode "pause"
+bindsym $mod+semicolon mode "pause"
 
 for_window [class="lxqt-openssh-askpass"] floating enable
 # Start i3bar to display a workspace bar (plus the system information i3status
