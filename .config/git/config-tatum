@@ -5,3 +5,9 @@
 	defaultBranch = main
 [status]
 	showUntrackedFiles = no
+[alias]
+  co = checkout
+  cm = commit
+  df = diff
+  br = branch
+  st = status
