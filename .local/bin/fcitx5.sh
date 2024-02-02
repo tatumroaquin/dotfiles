@@ -1,24 +1,28 @@
 #!/bin/sh
 
 INPUT_GROUP="$(fcitx5-remote -q)"
-INPUT_METHOD="unknown"
+INPUT_NAME="$(fcitx5-remote -n)"
 
 case "$(fcitx5-remote -n)" in
   'keyboard-us')
-    INPUT_METHOD="US"
+    INPUT_NAME="US"
     ;;
 
   'keyboard-us-dvorak')
-    INPUT_METHOD="DV"
+    INPUT_NAME="DV"
+    ;;
+
+  'keyboard-us-colemak')
+    INPUT_NAME="CO"
     ;;
 
   'pinyin')
-    INPUT_METHOD="ZH"
+    INPUT_NAME="ZH"
     ;;
 
   'mozc')
-    INPUT_METHOD="JP"
+    INPUT_NAME="JP"
     ;;
 esac
 
-echo "$INPUT_GROUP $INPUT_METHOD"
+echo "$INPUT_GROUP $INPUT_NAME"
