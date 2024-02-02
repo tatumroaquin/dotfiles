@@ -1,0 +1,7 @@
+modmap:
+  - name: Global
+    remap:
+      Capslock:
+        held: [Ctrl_L]
+        alone: [Capslock]
+        alone_timeout_millis: 250
