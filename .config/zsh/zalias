@@ -23,7 +23,8 @@ alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
   i3cfg="nvim $XDG_CONFIG_HOME/i3/config" \
   picfg="nvim $XDG_CONFIG_HOME/picom/picom.conf" \
   plcfg="nvim $XDG_CONFIG_HOME/polybar/config.ini" \
-  qtcfg="nvim $XDG_CONFIG_HOME/qutebrowser/config.py"
+  qtcfg="nvim $XDG_CONFIG_HOME/qutebrowser/config.py" \
+  tmcfg="nvim $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # HOME MEDIA FOLDERS
 alias code="cd ~/Code" \
