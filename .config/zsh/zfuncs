@@ -1,3 +1,7 @@
 getip() {
-  echo `curl -sL ifconfig.me/ip`
+  echo `curl -sL ifconfig.me/ip`;
 }
+
+# beep() {
+#   paplay /usr/share/sounds/freedesktop/stereo/bell.oga;
+# }
