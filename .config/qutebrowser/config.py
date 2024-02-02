@@ -486,6 +486,7 @@ config.bind("<", "tab-move -")
 config.bind(
     "<Ctrl+Shift+y>", "hint links spawn --detach mpv --force-window yes {hint-url}"
 )
+config.bind("<Ctrl+r>", "hint all right-click")
 config.bind("<Ctrl+m>", "tab-mute")
 config.bind(">", "tab-move +")
 config.bind("J", "tab-prev")
