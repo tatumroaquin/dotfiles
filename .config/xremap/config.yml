@@ -4,4 +4,4 @@ modmap:
       Capslock:
         held: [Ctrl_L]
         alone: [Capslock]
-        alone_timeout_millis: 250
+        alone_timeout_millis: 300
