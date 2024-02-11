@@ -1,12 +1,91 @@
-#!/bin/sh
-
-SEARCH_STRING="$1"
+#!/bin/bash
+# Author: Tatum Roaquin
+# Description: CLI script to retrieve the metadata on TV shows, number of seasons and title names, interfaces with TMDB for backend functionality.
 
 # Insert your API JWT TOKEN here
 API_TOKEN=""
 
+# Get the last argument of the script
+SEARCH_STRING="${*: -1}"
+
+usage() {
+  echo "Usage: $0 [-s <SEASON_NUMBER> -e <EPISODE_NUMBER>] <SERIES_TITLE>"
+}
+
+# Get every single season and episode data of the entire series excluding season 0 (specials)
+get_all_episodes_data() {
+  SERIES_ID="$1"
+  NUMBER_OF_SEASONS="$2"
+
+  for SEASON in $(seq 1 "$NUMBER_OF_SEASONS"); do
+    EPISODES=$(curl -s -G \
+      --url "https://api.themoviedb.org/3/tv/$SERIES_ID/season/$SEASON" \
+      --header "Authorization: Bearer $API_TOKEN" \
+      --header 'accept: application/json'
+    )
+    echo "$EPISODES" | jq -r '.episodes[] | "S\(if .season_number < 10 then "0\(.season_number)" else "\(.season_number)" end)E\(if .episode_number < 10 then "0\(.episode_number)" else "\(.episode_number)" end) - \(.name)"'
+  done
+}
+
+# Get all episodes for one season of a series
+get_one_season_data() {
+  SERIES_ID="$1"
+  SEASON_NUMBER="$2"
+  EPISODES=$(curl -s -G \
+    --url "https://api.themoviedb.org/3/tv/$SERIES_ID/season/$SEASON_NUMBER" \
+    --header "Authorization: Bearer $API_TOKEN" \
+    --header 'accept: application/json'
+  );
+  echo "$EPISODES" | jq -r '.episodes[] | "S\(if .season_number < 10 then "0\(.season_number)" else "\(.season_number)" end)E\(if .episode_number < 10 then "0\(.episode_number)" else "\(.episode_number)" end) - \(.name)"'
+}
+
+# Get data on only one episode of a series
+get_one_episode_data() {
+  SERIES_ID="$1"
+  SEASON_NUMBER="$2"
+  EPISODE_NUMBER="$3"
+  EPISODE_DATA=$(curl -s -G \
+    --url "https://api.themoviedb.org/3/tv/$SERIES_ID/season/$SEASON_NUMBER/episode/$EPISODE_NUMBER" \
+    --header "Authorization: Bearer $API_TOKEN" \
+    --header 'accept: application/json'
+  )
+  echo "$EPISODE_DATA" | jq -r '"S\(if .season_number < 10 then "0\(.season_number)" else "\(.season_number)" end)E\(if .episode_number < 10 then "0\(.episode_number)" else "\(.episode_number)" end) - \(.name)\nOVERVIEW: \(.overview)"'
+}
+
+ALL_SEASONS_FLAG=false
+
+while getopts ":a:s:e:" opts; do
+  case "${opts}" in
+    a)
+      ALL_SEASONS_FLAG=true
+    ;;
+
+    s)
+      SEASON_NUMBER="${OPTARG}"
+
+      if [ -z "$SEASON_NUMBER" ]; then
+        echo "Please provide the season number to retrieve"
+        exit 1
+      fi
+    ;;
+
+    e)
+      EPISODE_NUMBER="${OPTARG}"
+
+      if [ -z "$EPISODE_NUMBER" ]; then
+        echo "Please provide the episode number to retrieve"
+        exit 1
+      fi
+    ;;
+
+    *)
+      usage
+    ;;
+  esac
+done
+
 # '-G' is important see https://stackoverflow.com/a/58885676
-RESULTS=$(curl -s -G \
+SEARCH_DATA=$(curl -s -G \
   --url "https://api.themoviedb.org/3/search/tv" \
   --header "Authorization: Bearer $API_TOKEN" \
   --header 'accept: application/json' \
@@ -16,25 +95,34 @@ RESULTS=$(curl -s -G \
   --data-urlencode "query=$SEARCH_STRING"
 )
 
-ID=$(echo "$RESULTS" | jq .results[0].id);
-TITLE=$(echo "$RESULTS" | jq .results[0].name);
+SERIES_ID=$(echo "$SEARCH_DATA" | jq .results[0].id)
+SERIES_TITLE=$(echo "$SEARCH_DATA" | jq .results[0].name)
 
-DATA=$(curl -s -G \
-  --url "https://api.themoviedb.org/3/tv/$ID" \
+SEASON_DETAILS=$(curl -s -G \
+  --url "https://api.themoviedb.org/3/tv/$SERIES_ID" \
   --header "Authorization: Bearer $API_TOKEN" \
-  --header 'accept: application/json'
-);
-NUM_OF_SEASONS=$(echo "$DATA" | jq .number_of_seasons)
+  --header 'accept: application/json' \
+  --data-urlencode "language=en-US" 
+)
 
-for SEASON in $(seq 1 "$NUM_OF_SEASONS"); do
-  EPISODES=$(curl -s -G \
-    --url "https://api.themoviedb.org/3/tv/$ID/season/$SEASON" \
-    --header "Authorization: Bearer $API_TOKEN" \
-    --header 'accept: application/json'
-  );
-  echo "$EPISODES" | jq -r '.episodes[] | "S\(if .season_number < 10 then "0\(.season_number)" else "\(.season_number)" end)E\(if .episode_number < 10 then "0\(.episode_number)" else "\(.episode_number)" end) - \(.name)"'
-done
+NUMBER_OF_SEASONS=$(echo "$SEASON_DETAILS" | jq .number_of_seasons)
 
-echo "Id: $ID"
-echo "Title: $TITLE"
-echo "Seasons: $NUM_OF_SEASONS"
+echo '---------------------------------------'
+echo "SERIES ID: $SERIES_ID"
+echo "SERIES TITLE: $SERIES_TITLE"
+echo "NUM OF SEASONS : $NUMBER_OF_SEASONS"
+echo '---------------------------------------'
+
+if [ $ALL_SEASONS_FLAG = true ]; then
+
+  get_all_episodes_data "$SERIES_ID" "$NUMBER_OF_SEASONS"
+
+elif [ -n "$SEASON_NUMBER" ] && [ -z "$EPISODE_NUMBER" ]; then
+
+  get_one_season_data "$SERIES_ID" "$SEASON_NUMBER"
+
+elif [ -n "$SEASON_NUMBER" ] && [ -n "$EPISODE_NUMBER" ]; then
+
+  get_one_episode_data "$SERIES_ID" "$SEASON_NUMBER" "$EPISODE_NUMBER"
+
+fi
