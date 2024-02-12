@@ -2,8 +2,8 @@
 # Author: Tatum Roaquin
 # Description: CLI script to retrieve the metadata on TV shows, number of seasons and title names, interfaces with TMDB for backend functionality.
 
-# Insert your API JWT TOKEN here
-API_TOKEN=""
+# Insert your API JWT TOKEN string here
+API_TOKEN=$(pass show tmdb/ormus | grep 'api-token' | awk -F' ' '{print $2}')
 
 # Get the last argument of the script
 SEARCH_STRING="${*: -1}"
@@ -94,6 +94,7 @@ SEARCH_DATA=$(curl -s -G \
   --data-urlencode "page=1" \
   --data-urlencode "query=$SEARCH_STRING"
 )
+echo "$SEARCH_DATA" | jq
 
 SERIES_ID=$(echo "$SEARCH_DATA" | jq .results[0].id)
 SERIES_TITLE=$(echo "$SEARCH_DATA" | jq .results[0].name)
