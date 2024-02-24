@@ -9,7 +9,7 @@ API_TOKEN=$(pass show tmdb/ormus | grep 'api-token' | awk -F' ' '{print $2}')
 SEARCH_STRING="${*: -1}"
 
 usage() {
-  echo "Usage: $0 [-s <SEASON_NUMBER> -e <EPISODE_NUMBER>] <SERIES_TITLE>"
+  echo "Usage: $0 [-i <SERIES_ID> -s <SEASON_NUMBER> -e <EPISODE_NUMBER>] <SERIES_TITLE>"
 }
 
 # Get every single season and episode data of the entire series excluding season 0 (specials)
@@ -54,8 +54,11 @@ get_one_episode_data() {
 
 ALL_SEASONS_FLAG=false
 
-while getopts ":a:s:e:" opts; do
+while getopts ":i:a:s:e:" opts; do
   case "${opts}" in
+    i)
+      SERIES_ID="${OPTARG}"
+    ;;
     a)
       ALL_SEASONS_FLAG=true
     ;;
@@ -94,9 +97,8 @@ SEARCH_DATA=$(curl -s -G \
   --data-urlencode "page=1" \
   --data-urlencode "query=$SEARCH_STRING"
 )
-echo "$SEARCH_DATA" | jq
 
-SERIES_ID=$(echo "$SEARCH_DATA" | jq .results[0].id)
+[ -z "$SERIES_ID" ] && SERIES_ID=$(echo "$SEARCH_DATA" | jq .results[0].id)
 SERIES_TITLE=$(echo "$SEARCH_DATA" | jq .results[0].name)
 
 SEASON_DETAILS=$(curl -s -G \
