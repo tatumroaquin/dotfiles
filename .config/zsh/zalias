@@ -1,5 +1,5 @@
 # LS COLORED OUTPUT
-alias ls="ls --color=auto"
+alias {l,ls}="ls --color=auto"
 alias la="ls -la"
 alias lh="ls -lh"
 alias ll="ls -l"
