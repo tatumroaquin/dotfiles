@@ -39,6 +39,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -46,3 +47,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # miniconda
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 # miniconda end
+
+# plenv
+export PATH="$PATH:$HOME/.plenv/bin"
+eval "$(plenv init - $SHELL_NAME)"
+# plenv end

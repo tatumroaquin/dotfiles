@@ -39,7 +39,7 @@ alias code="cd ~/Code" \
   cv="cd $HOME/Documents/cv" \
   fem="code; cd frontendmentor.io" \
   cs="code; cd C#" \
-  leet="code; cd leetcode/cs/LeetCode" \
+  lc="code; cd leetcode/cs/LeetCode" \
   pt="code; cd C#/PrintPattern" \
   adv="code; cd AoC-CSharp/AoC-2023/"
 
