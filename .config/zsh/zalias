@@ -48,7 +48,7 @@ alias ttd="transmission-daemon" \
   ttr="transmission-remote" \
   ttl="transmission-remote --list" \
   tta="transmission-remote --add" \
-  tsh="transmission-show" \
+  tts="transmission-show" \
   alias ytdl="yt-dlp"
 
 alias bin="cd ~/.local/bin"
