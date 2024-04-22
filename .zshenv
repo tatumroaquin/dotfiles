@@ -19,10 +19,11 @@ export XMODIFIERS=@im=fcitx
 
 export XINITRC="$XDG_CONFIG_HOME/x/xinitrc"
 
+export SCRIPTS="$HOME/.scripts/sh"
 export DOTNET_ROOT="$HOME/.dotnet"
 export DOTNET_TOOLS="$HOME/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
-export PATH="$PATH:$DOTNET_ROOT:$DOTNET_TOOLS"
+export PATH="$PATH:$SCRIPTS:$DOTNET_ROOT:$DOTNET_TOOLS"
 
 PATH="/home/tatum/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/tatum/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
