@@ -20,11 +20,11 @@ alias ze="nvim $HOME/.zshenv" \
 # DOT FILES RELATED
 alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
   cfg="cd $XDG_CONFIG_HOME" \
-  i3cfg="nvim $XDG_CONFIG_HOME/i3/config" \
-  picfg="nvim $XDG_CONFIG_HOME/picom/picom.conf" \
-  plcfg="nvim $XDG_CONFIG_HOME/polybar/config.ini" \
-  qtcfg="nvim $XDG_CONFIG_HOME/qutebrowser/config.py" \
-  tmcfg="nvim $XDG_CONFIG_HOME/tmux/tmux.conf"
+  i3cfg="cfg; cd i3; nvim config" \
+  picfg="cfg; cd picom; nvim picom.conf" \
+  plcfg="cfg; cd polybar; nvim config.ini" \
+  qtcfg="cfg; cd qutebrowser; nvim config.py" \
+  tmcfg="cfg; cd tmux; nvim tmux.conf"
 
 # HOME MEDIA FOLDERS
 alias code="cd ~/Code" \
@@ -41,7 +41,8 @@ alias code="cd ~/Code" \
   cs="code; cd C#" \
   lc="code; cd leetcode/cs/LeetCode" \
   pt="code; cd C#/PrintPattern" \
-  adv="code; cd AoC-CSharp/AoC-2023/"
+  adv="code; cd AoC-CSharp/AoC-2023/" \
+  ud='cd ~/Obsidian/Artificial\ Intelligence/Udacty\ -\ AIPND'
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
@@ -51,6 +52,6 @@ alias ttd="transmission-daemon" \
   tts="transmission-show" \
   alias ytdl="yt-dlp"
 
-alias bin="cd ~/.local/bin"
+alias bin="cd ~/.scripts/sh"
 alias {v,nv,nvi}="nvim"
 alias vimrc="cd $XDG_CONFIG_HOME/nvim/lua/core"
