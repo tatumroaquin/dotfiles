@@ -26,7 +26,7 @@ gaps outer 2
 # --------------------------------------------------------------------
 
 # --- [ AUTO START ] ---
-set $scripts $HOME/.local/bin
+set $scripts $HOME/.scripts/sh
 
 exec_always --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
 exec_always --no-startup-id $scripts/xremap.sh
