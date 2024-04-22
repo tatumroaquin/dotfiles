@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 INPUT_GROUP="$(fcitx5-remote -q)"
 INPUT_NAME="$(fcitx5-remote -n)"
