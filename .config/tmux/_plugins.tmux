@@ -6,6 +6,6 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-yank'
 
 set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'tatumroaquin/catppuccin-tmux'
 set -g @plugin 'olimorris/tmux-pomodoro-plus'
 set -g @plugin 'omerxx/tmux-sessionx'
