@@ -11,3 +11,5 @@
   df = diff
   br = branch
   st = status
+[push]
+  recurseSubmodules = check
