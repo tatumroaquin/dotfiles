@@ -1,3 +1,5 @@
+# olimorris/tmux-pomodoro-plus
+
 set -g @pomodoro_toggle 'p'           # Start/pause a Pomodoro/break
 set -g @pomodoro_cancel 'P'           # Cancel the current session
 set -g @pomodoro_skip '_'             # Skip a Pomodoro/break
