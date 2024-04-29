@@ -32,5 +32,9 @@ bind-key -n C-l next-window
 # Tmux auto-session script
 # https://github.com/junegunn/fzf/issues/1841#issuecomment-580975759
 bind-key -n C-f run-shell -b "tmux-session.sh"
+
+# Tmux custom session
+bind-key -n C-d command-prompt -p "New session:" "new-session -s '%%'"
+
 # Tmux fzf-tmux find windows
 bind-key -n C-g run-shell -b "tmux-window.sh"
