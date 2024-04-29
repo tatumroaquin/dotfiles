@@ -54,4 +54,4 @@ alias ttd="transmission-daemon" \
 
 alias bin="cd ~/.scripts/sh"
 alias {v,nv,nvi}="nvim"
-alias vimrc="cd $XDG_CONFIG_HOME/nvim/lua/tatum"
+alias vimrc="cd $XDG_CONFIG_HOME/nvim"
