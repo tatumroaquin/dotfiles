@@ -2,7 +2,7 @@
 
 # https://raw.githubusercontent.com/ThePrimeagen/.dotfiles/master/bin/.local/scripts/tmux-sessionizer
 
-dirlist=(~/Code ~/Obsidian ~/Documents ~/.config)
+dirlist=(~/Code ~/Obsidian ~/Documents ~/.config ~/.scripts)
 
 get_dir() {
 	for dir in "${dirlist[@]}"; do
@@ -22,7 +22,7 @@ if [ -z "$session_dir" ]; then
 	exit 0
 fi
 
-session_name=$(basename "$session_dir" | tr . _)
+session_name=$(basename "$session_dir" | tr -cs "a-zA-Z0-9-_\n" "_")
 
 # tmux is running
 if [ -z "$TMUX" ]; then
