@@ -27,3 +27,4 @@ set -g @pomodoro_interval_display "[%s/%s]"
 # Default keybindings
 # <tmux-prefix> C-p to open the Pomodoro timer menu
 # <tmux-prefix> M-p to set a custom Pomodoro timer
+# <tmux-prefix> e to restart a Pomodoro
