@@ -24,7 +24,8 @@ alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
   picfg="cfg; cd picom; nvim picom.conf" \
   plcfg="cfg; cd polybar; nvim config.ini" \
   qtcfg="cfg; cd qutebrowser; nvim config.py" \
-  tmcfg="cfg; cd tmux; nvim tmux.conf"
+  tmcfg="cfg; cd tmux; nvim tmux.conf" \
+  hycfg="cfg; cd hypr; nvim hyprland.conf"
 
 # HOME MEDIA FOLDERS
 alias code="cd ~/Code" \
@@ -42,7 +43,8 @@ alias code="cd ~/Code" \
   lc="code; cd leetcode/cs/LeetCode" \
   pt="code; cd C#/PrintPattern" \
   adv="code; cd AoC-CSharp/AoC-2023/" \
-  ud='cd ~/Obsidian/Artificial\ Intelligence/Udacty\ -\ AIPND'
+  ud='cd ~/Obsidian/Artificial\ Intelligence/Udacty\ -\ AIPND' \
+  obs="cd ~/Obsidian"
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
@@ -50,7 +52,7 @@ alias ttd="transmission-daemon" \
   ttl="transmission-remote --list" \
   tta="transmission-remote --add" \
   tts="transmission-show" \
-  alias ytdl="yt-dlp"
+  ytdl="yt-dlp"
 
 alias bin="cd ~/.scripts/sh"
 alias {v,nv,nvi}="nvim"
