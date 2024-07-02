@@ -23,7 +23,7 @@
 #
 ##### connection settings #####
 #
-mpd_host = music.mdg
+mpd_host = localhost
 #
 mpd_port = 6600
 #
