@@ -43,8 +43,9 @@ alias code="cd ~/Code" \
   lc="code; cd leetcode/cs/LeetCode" \
   pt="code; cd C#/PrintPattern" \
   adv="code; cd AoC-CSharp/AoC-2023/" \
-  ud='cd ~/Obsidian/Artificial\ Intelligence/Udacty\ -\ AIPND' \
-  obs="cd ~/Obsidian"
+  ud='cd ~/Documents/Udacty\ -\ AIPND' \
+  obs="cd ~/Obsidian" \
+  iso="cd ~/Machines/ISO"
 
 # APPLICATIONS
 alias ttd="transmission-daemon" \
