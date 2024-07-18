@@ -12,4 +12,4 @@ xautolock \
   -time "$suspend_time" \
   -locker 'systemctl suspend' \
   -notify "$lock_time" \
-  -notifier 'sh ~/.local/bin/lockscreen.sh' &
+  -notifier 'sh ~/.scripts/sh/lockscreen.sh' &
