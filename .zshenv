@@ -23,10 +23,9 @@ export SCRIPTS="$HOME/.scripts/sh"
 export DOTNET_ROOT="$HOME/.dotnet"
 export DOTNET_TOOLS="$HOME/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT="true"
-export PATH="$PATH:$SCRIPTS:$DOTNET_ROOT:$DOTNET_TOOLS"
-
 export CARGO_BIN="$HOME/.cargo/bin"
-export PATH="$PATH:$CARGO_BIN"
+
+export PATH="$SCRIPTS:$DOTNET_ROOT:$DOTNET_TOOLS:$CARGO_BIN:$PATH"
 
 PATH="/home/tatum/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/tatum/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
