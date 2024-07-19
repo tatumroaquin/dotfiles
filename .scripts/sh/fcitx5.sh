@@ -23,6 +23,10 @@ case "$(fcitx5-remote -n)" in
   'mozc')
     INPUT_NAME="JP"
     ;;
+
+  'hangul')
+    INPUT_NAME="KR"
+    ;;
 esac
 
 echo "$INPUT_GROUP $INPUT_NAME"
