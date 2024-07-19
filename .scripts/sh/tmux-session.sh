@@ -10,9 +10,13 @@ get_dir() {
 	done | fzf-tmux -p 50%,100%
 }
 
+ls_dir() {
+  find "$1" -mindepth 1 -maxdepth 1 -type d | fzf-tmux -p 50%,100%
+}
+
 # if args is equal to 1
 if [ $# -eq 1 ]; then
-	session_dir=$1
+  session_dir=$(ls_dir "$1")
 else
 	session_dir=$(get_dir)
 fi
