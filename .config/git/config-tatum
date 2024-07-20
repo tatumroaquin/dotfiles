@@ -9,6 +9,7 @@
   co = checkout
   cm = commit
   df = diff
+  dfs = "!git diff --staged"
   br = branch
   st = status
 [push]
