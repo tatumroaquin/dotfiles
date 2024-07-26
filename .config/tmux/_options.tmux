@@ -13,7 +13,10 @@ set -g detach-on-destroy off
 # Vim like selection and copy
 set-window-option -g mode-keys vi
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+
+if-shell "[ -n $WAYLAND_DISPLAY ]" \
+    "bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'wl-copy'" \
+    "bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'clip -in -selection clipboard'"
 
 # Create panes in the current path
 bind-key c   new-window -c '#{pane_current_path}'
