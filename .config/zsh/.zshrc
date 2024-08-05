@@ -25,7 +25,7 @@ alias help="run-help"
 [[ -f $HOME/.config/zsh/zfuncs ]] && source $HOME/.config/zsh/zfuncs
 
 # source pywal colorscheme
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 
 # (NVM) Node Version Manager
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -47,13 +47,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 # miniconda end
-
-# plenv
-export PATH="$PATH:$HOME/.plenv/bin"
-eval "$(plenv init - $SHELL_NAME)"
-# plenv end
-
-# rbenv
-export PATH="$PATH:$HOME/.rbenv/bin"
-eval "$(rbenv init - ${SHELL##*/})"
-# rbenv end
