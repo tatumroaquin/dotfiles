@@ -18,7 +18,7 @@ alias ze="nvim $HOME/.zshenv" \
   rezf="source $ZDOTDIR/zfuncs"
 
 # DOT FILES RELATED
-alias dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
+alias dot="git --git-dir=$HOME/.dotfiles --work-tree=$HOME" \
   cfg="cd $XDG_CONFIG_HOME" \
   i3cfg="cfg; cd i3; nvim config" \
   picfg="cfg; cd picom; nvim picom.conf" \
