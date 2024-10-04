@@ -18,7 +18,7 @@ appname="pamixer"
 tagname="audio"
 
 notify() {
-  notify-send -a $appname -u $1 -i $2 \
+  dunstify -a $appname -u $1 -i $2 \
     -h string:x-dunst-stack-tag:$tagname \
     -h int:value:"$4" "$3: $4"
 }

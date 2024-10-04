@@ -7,6 +7,11 @@ param=$1
 appname="light"
 tagname="brightness"
 
+if ! groups | grep -qw "video"; then
+  dunstify -a $appname -h string:x-dunst-stack-tag:$tagname "brightness" "$USER is not a member of the video group. Cannot change brightness level"
+  exit 1
+fi
+
 increase() {
    num=`printf "%0.2f" $(light -G)`
    add=`printf "%0.2f" $(echo "$num * 1.3" | bc)`
@@ -19,12 +24,12 @@ decrease() {
 
    num=`printf "%0.2f" $(light -G)`
    sub=`printf "%0.2f" $(echo "$num / 1.3" | bc)`
-   [ ${num%.*} -lt 1 ] && sub=$num && return
+   [ ${num%.*} -le 1 ] && sub=0.5
    light -S $sub
 }
 
 notify () {
-  notify-send -a $appname -u $1 -i $2 \
+  dunstify -a $appname -u $1 -i $2 \
     -h string:x-dunst-stack-tag:$tagname \
     -h int:value:"$4" "$3: $4%"
 }
