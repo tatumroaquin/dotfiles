@@ -21,7 +21,8 @@ bind-key \\  split-window -h -c '#{pane_current_path}'
 bind-key "'" split-window -v -c '#{pane_current_path}'
 
 # Navigate between windows
-bind-key -n C-y select-window -t -1
+unbind C-n
+bind-key -n C-n select-window -t -1
 bind-key -n C-p select-window -t +1
 
 # Reorganising window positions
