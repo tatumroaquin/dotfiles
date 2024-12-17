@@ -4,6 +4,7 @@ alias la="ls -la"
 alias lh="ls -lh"
 alias ll="ls -l"
 alias lha="ls -lha"
+alias l1="ls -1"
 
 # ZSH CONFIG ALIAS
 alias ze="nvim $HOME/.zshenv" \
