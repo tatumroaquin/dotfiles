@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export ZDOTDIR="$HOME/.config/zsh"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -13,9 +15,9 @@ export VISUAL="nvim"
 export SYSTEMD_EDITOR="nvim"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS=@im="fcitx"
 
 export XINITRC="$XDG_CONFIG_HOME/x/xinitrc"
 
